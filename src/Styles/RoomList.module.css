@@ -1,0 +1,36 @@
+.hidden {
+    display: none;
+}
+
+.location_box{
+    background-color: rgb(218, 218, 218);
+    width: 500px;
+    height: 500px;
+}
+
+
+.page_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header_layout{
+    width: 1024px;
+    height: 211px;
+    padding: 0 20% 0 20%;
+    background-color: #f7323f;
+    color: #fff;
+}
+
+.top_box {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_box{
+    display: flex;
+}

@@ -1,0 +1,74 @@
+.main_contents_box {
+    display: flex;
+    flex-direction: column;
+    width: 635px;
+    height: 280px;
+}
+
+.main_contents_box > img {
+    height: 280px;
+}
+
+.description_box {
+    padding: 0px 5% 0px 5%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 130px;
+}
+
+.description_box p {
+    margin-top: 8px;
+}
+
+/* star start */
+/* 3성 아래, 2성, 1성, 관광, 부티크, 비지니스는 이 색을 씁니다. */
+.star_3down {
+    background-color: rgba(106,120,141,1);
+    padding: 0px 3px 0px 3px;
+    font-size: 14px;
+    color: white;
+}
+/* 4성, 5성, 특급은 이 색을 씁니다. */
+.star_4up {
+    background-color: rgba(97,95,184,1);
+    padding: 0px 3px 0px 3px;
+    font-size: 14px;
+    color: white;
+}
+
+.star_box {
+    width: 39px;
+    height: 18px;
+}
+
+/* star end */
+
+.main_text {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.score > span {
+    color: rgb(255,167,38);
+    font-size: 20px;
+}
+
+.location {
+    color: white;
+    font-size: 20px;
+}
+
+.price_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: white;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+}

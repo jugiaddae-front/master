@@ -1,0 +1,169 @@
+.filtermenu_box h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.filtermenu_box input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.56);
+    margin-right: 10px;
+}
+
+.filtermenu_box label {
+    font-size: 14px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.56);
+}
+
+.specil_label label {
+    font-size: 16px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.56);
+}
+
+.filtermenu_box li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filtermenu_box section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 27px;
+    margin: 0px 24px 0px 24px;
+}
+
+.filtermenu_box strong {
+    margin-bottom: 21px;
+    font-weight: bold;
+}
+
+.filtermenu_box {
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 4px;
+}
+
+/* date_section start */
+
+.date_select_box {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    margin: 13px 0 32px 0;
+}
+
+.calender_img {
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px 0 10px;
+}
+
+/* date_section end */
+/* detail_section start */
+
+.detail_section {
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.btn_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detail_btn_style {
+    width: 120px;
+    height: 40px;
+    border: 1px solid rgb(242,7,76);
+    border-radius: 4px;
+    margin-top: 13px;
+    font-size: 16px;
+}
+
+.reset_btn {
+    background-color: white;
+    color: rgb(242,7,76);
+}
+
+.apply_btn {
+    background-color: rgb(242,7,76);
+    color: white;
+}
+
+/* detail_section end */
+/* people_section start */
+
+.people_box {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.people_box > p {
+    display: flex;
+    align-items: center;
+}
+
+.people_btn_box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 140px;
+    color: rgb(242,7,76);
+    font-weight: bold;
+}
+
+.people_btn_box > img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.people_btn_box > img:first-child { 
+    width: 16px;
+    height: 16px;
+
+}
+
+.people_btn_box > img:last-child { 
+    width: 16px;
+    height: 16px;
+
+}
+
+/* people_section end */
+/* bedtype_section start */
+
+.bedtype_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* bedtype_section end */
+/* filter_checkbox_section start */
+
+.filter_checkbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter_checkbox > li {
+    flex: 1 1 40%;
+}
+
+/* filter_checkbox_section end */
+
+.filtermenu_box section:last-child {
+    padding-bottom: 24px;
+}

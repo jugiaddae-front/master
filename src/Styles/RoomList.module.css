@@ -1,13 +1,10 @@
+:global html {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', '맑은 고딕', '맑은고딕', 'Malgun Gothic', sans-serif;
+}
+
 .hidden {
     display: none;
 }
-
-.location_box{
-    background-color: rgb(218, 218, 218);
-    width: 500px;
-    height: 500px;
-}
-
 
 .page_center {
     display: flex;
@@ -16,21 +13,96 @@
     flex-direction: column;
 }
 
+/* nav바 Start */
+
+.header {
+    width: 100%;
+    display: flex;
+    background-color: #f7323f;
+}
+
 .header_layout{
+    background-color: #f7323f;
     width: 1024px;
     height: 211px;
-    padding: 0 20% 0 20%;
-    background-color: #f7323f;
+    margin: auto;
     color: #fff;
 }
 
-.top_box {
-    height: 64px;
+/* nav바 End */
+/* sub_top Start */
+
+.sub_top_box {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-top: 64px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.nav_box{
-    display: flex;
+.page_center h2 {
+    font-size: 38px;
+    margin: 21px 0 21px 0;
 }
+
+.location_name_box {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    background-color: #e92d39;
+    padding: 0 12px 0 12px;
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.location_box {
+    background: #fff;
+    color: black;
+    box-shadow: 0px 3px 5px 3px rgba(0,0,0,0.2);
+    width: 466px;
+    height: 555px;
+    border-radius: 4px;
+    z-index: 1;
+    position: relative;
+    right: 40px;
+    top: 20px;
+}
+
+.arrow {
+    width: 10px;
+    margin: 0px 10px 0px 10px;
+}
+
+/* sub_top End */
+.main_big_box > main {
+    width: 1024px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+/* Filter Menu Start */
+.filter_box {
+    width: 294px;
+}
+/* Main Start */
+
+.main_big_box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.main_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main_contents_box > h3 {
+    padding: 23px 0px 12px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.56);
+}
+/* Main End */

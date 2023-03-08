@@ -1,3 +1,5 @@
+import styles from "../Styles/Recommedation.module.css"
+
 function Recommendation({imgUrl, star, maintext, score, review_num, location, price}) {
 
     function evaluateRecommend() {
@@ -13,26 +15,26 @@ function Recommendation({imgUrl, star, maintext, score, review_num, location, pr
     }
 
     return (
-        <>
-            <img className="recommendation_img" alt="사진" src={imgUrl}></img>
-            <div className="description_box">
+        <div className={styles.main_contents_box}>
+            <img alt="사진" src={imgUrl}></img>
+            <div className={styles.description_box}>
                 <div>
-                    <p>{star}</p>
+                    <div className={styles.star_box}>
+                        <span className={styles.star_3down}>{star}</span>
+                    </div>
+                    <p className={styles.main_text}>{maintext}</p>
+                    <p className={styles.score}>
+                        <span>{score}</span>
+                        <span>&nbsp;{evaluateRecommend()}</span>
+                        <span>&nbsp;{review_num}</span>
+                    </p>
+                    <p className={styles.location}>{location}</p>
                 </div>
-                <strong>{maintext}</strong>
-                <p>
-                    <span>{score}</span>
-                    <span>{evaluateRecommend()}</span>
-                    <span>{review_num}</span>
-                </p>
-                <p>{location}</p>
+                    <p className={styles.price_box}>
+                        <b className={styles.price}>{price}</b>
+                    </p>
             </div>
-            <div className="price_box">
-                <p>
-                    <b>{price}</b>
-                </p>
-            </div>
-        </>
+        </div>
     )
 }
 

@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
-import styles from './HomeMobile.module.css';
-import { useMediaQuery } from 'react-responsive';
+import styles from './Home.module.css';
+import LocationPage from '../Components/Home_LocationPage';
 
 
 const HomeMobile = () => {
-  // const isMoblie = useMediaQuery({
-  //   query: "(max-width:1024px)"
-  // });
 
   const [menuOn, setMenuOn] = useState(false);
   const [searchOn, setSearchOn] = useState(false);
@@ -15,11 +12,11 @@ const HomeMobile = () => {
     <div>
 
         <div className={styles.main_wrapper}>
-          <header className={styles.header_wrapper}>
-            <section className={styles.header_section}>
-              <h1 className={styles.title}>저기어때.</h1>
-              <button type='button' className={styles.header_menu} onClick={(e) => {setMenuOn(true)}}>메뉴</button>
-              <button type='button' className={styles.header_search} onClick={(e) => setSearchOn(true)}>검색</button>
+          <header className={styles.mheader_wrapper}>
+            <section className={styles.mheader_section}>
+              <h1 className={styles.mtitle}>저기어때.</h1>
+              <button type='button' className={styles.mheader_menu} onClick={(e) => {setMenuOn(true)}}>메뉴</button>
+              <button type='button' className={styles.mheader_search} onClick={(e) => setSearchOn(true)}>검색</button>
 
               <div className={styles.msearch_bar} style={searchOn ? {display: 'block'} : {display: 'none'}}>
                 <div className={styles.msearch_main}>
@@ -64,9 +61,11 @@ const HomeMobile = () => {
         }
 
           <div className={styles.content}>
-            <div className={styles.mainAd_wrpper}></div>
+          <div className={styles.mainAd_wrpper}></div>
+          <LocationPage/>
+          
 
-            <div className={styles.main_nav}>
+            {/* <div className={styles.main_nav}>
               <ul>
                 <li>
                   <a>
@@ -111,7 +110,7 @@ const HomeMobile = () => {
                 </li>
 
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       

@@ -1,0 +1,547 @@
+@import url('https://webfontworld.github.io/goodchoice/Jalnan.css');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px){
+
+  .mheader_wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+  
+      height: 68px;
+      transition: 0.4s;
+    }
+  .mheader_section {
+      height: 50px;
+      background-color: #fff;
+    }
+  
+    .mtitle {
+      font-family: 'Jalnan';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      width: 115px;
+      height: 20px;
+      margin: 0 0 0 -47.5px;
+      background-size: 95px auto;
+  
+      line-height: 25px;
+      color: red;
+    }
+  
+    .mheader_menu {
+      position: absolute;
+      top: 2px;
+      left: 8px;
+      width: 40px;
+      height: 40px;
+      border: none;
+  
+      background: url("../images/menu.png") 50% 50% no-repeat;
+      background-size: 24px auto;
+      text-indent: -9999px;
+  
+      cursor: pointer;
+    }
+  
+    .mheader_search {
+      position: absolute;
+      top: 2px;
+      right: 8px !important;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: url("../images/black_search.png") 50% 50% no-repeat;
+      background-size: 24px auto;
+      text-indent: -9999px;
+      cursor: pointer;
+    }
+  
+    .msearch_bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 44px;
+      background: #f9f9f9;
+    }
+  
+    .msearch_main {
+      overflow: hidden;
+      position: relative;
+      margin: 6px 56px 0 16px;
+      padding: 0 15px 0 35px;
+      height: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      background: #fff;
+    }
+  
+    .msearch_main input {
+      border: none;
+      outline: none;
+      
+      background: none;
+      width: 100%;
+      height: 20px;
+      margin-top: 4.5px;
+      line-height: 20px;
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  
+    .mbtn_search {
+      display: inline-block;
+      position: absolute;
+      top: 3px;
+      left: 8px;
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: url("../images/search.png") 50% 50% no-repeat;
+      background-size: 24px auto;
+      text-indent: -9999px;
+  
+      cursor: pointer;
+    }
+  
+    .msearch_bar button {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 56px;
+      height: 44px;
+      border: none;
+      background: none;
+      font-size: 14px;
+      line-height: 44px;
+      color: rgba(0, 0, 0, 0.87);
+  
+      cursor: pointer;
+    }
+
+  .content {
+    overflow: hidden;
+  }
+
+  .mainAd_wrpper {
+    margin-top: 50px;
+    height: 50vw;
+    background: #fff url("../images/main_ad.png") 50% 100% no-repeat;
+    background-size: cover;
+    text-indent: -9999px;
+  }
+
+    .menuBar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+  
+      z-index: 290;
+      background: rgba(0, 0, 0, 0.78);
+    }
+  
+    .menuBar_close {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      width: 24px;
+      height: 24px;
+      border: none;
+      /* background: url("../images/close.png") 0 0 no-repeat; */
+      background-size: 24px auto;
+      cursor: pointer;
+      /* background: rgba(0, 0, 0, 0.78);
+    color: #fff; */
+      /* text-indent: -9999px; */
+    }
+  
+    .menu_wrap {
+      position: fixed;
+      top: 0;
+      right: 56px;
+      bottom: 0;
+      left: 0;
+      z-index: 300;
+      transition: 0.8s;
+      border: 1px solid rgba(0, 0, 0, 0);
+    }
+  
+    .menu {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 56px;
+      background: #fff;
+    }
+  
+    .menu_top {
+      width: 100%;
+      height: 190px;
+      background-color: #ff0055;
+      /* background: linear-gradient(to-bottom, #ff0055 0%, #e62243 100%); */
+      display: block;
+      white-space: pre-wrap;
+  
+      text-align: center;
+      line-height: 150px;
+      box-sizing: border-box;
+      color: #fff;
+  
+      font-size: 30px;
+    }
+  
+    .menu_nav {
+      background: #e8e8e8;
+      overflow: hidden;
+      position: absolute;
+      top: 190px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 400;
+    }
+
+  
+    .menu_navMain ul {
+      list-style: none;
+      margin-bottom: 8px;
+      background: #fff;
+      vertical-align: middle;
+    }
+  
+    .menu_navMain ul li {
+      height: 64px;
+      margin: 0 16px;
+      vertical-align: middle;
+      line-height: 64px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+    }
+}
+
+.header_wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 68px;
+  transition: 0.4s;
+  background: #f7323f;
+}
+
+.header_section{
+  position: relative;
+  width: 1024px;
+  height: 64px;
+  background: none;
+  margin: 0 auto;
+}
+
+.title{
+  font-family: 'Jalnan';
+  position: absolute;
+  top: 23px;
+  left: 50px;
+
+  width: 96px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 24px;
+
+  margin: 0;
+  background-size: 96px auto;
+
+  color: #fff;
+
+  -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.header_search{
+  position: absolute;
+  border: none;
+  text-indent: -9999px;
+  top: 22px;
+  /* right: 396px; */
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+
+  background-size: 24px auto;
+  background: #f7323f url("../images/search.png") 50% 50% no-repeat;
+
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.list{
+  list-style: none;
+
+  display: inline-block;
+  position: absolute;
+  top: 27px;
+  right: 31px;
+
+  width: auto;
+  text-align: right;
+  color: rgba(256, 256, 256, 0.87);
+}
+
+.list li{
+  cursor: pointer;
+
+  display: inline-block;
+  position: relative;
+
+  min-width: 53px;
+  min-height: 35px;
+
+  font-size: 15px;
+  margin-left: 30px;
+  vertical-align: top;
+}
+
+.search_bar{
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  right: auto;
+  width: 725px;
+  height: 21px;
+  margin-left: -277px;
+  background: none;
+  z-index: 300;
+}
+
+.search_main{
+  margin: 0;
+  padding: 0;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: none;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.search_bar input{
+  animation-delay: 1s;
+  margin: 0;
+  background: none;
+  font-size: 15px;
+  color: #fff;
+  height: 21px;
+
+  border: none;
+  outline: none;
+  width: 100%;
+  line-height: 20px;
+}
+
+.search_bar input:focus {
+  border: none;
+  outline: none;
+}
+
+.search_bar input::placeholder{
+  color: rgba(256, 256, 256, 0.7);
+}
+
+.search_cancel{
+  top: 0px;
+  right: -41px;
+  width: 25px;
+  height: 25px;
+  background-size: 24px auto;
+  text-indent: -9999px;
+  cursor: pointer;
+
+  border: none;
+  font-size: 14px;
+  line-height: 44px;
+  background: #f7323f url("../images/close.png") 50% 50% no-repeat;
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-block;
+  position: absolute;
+}
+
+.reco_search{
+  position: fixed;
+  top: 68px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.33);
+
+  text-align: center;
+}
+
+.content{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainAd_Wrapper{
+  height: 580px;
+    background: #fff url("../images/main_ad.png") 50% 100% no-repeat;
+    background-size: 924px auto;
+}
+
+.main_link{
+  overflow: hidden;
+  padding: 32px 0;
+  margin: 0 auto;
+  background: rgb(253, 253, 253);
+}
+
+.main_link ul{
+  overflow: hidden;
+    /* width: 1024px; */
+    text-align: center;
+    margin: 0 auto;
+
+    list-style: none;
+}
+
+.main_link ul li{
+  /* float: left; */
+  display: inline-block;
+  margin: -1.5px;
+  width: 163px;
+}
+
+.main_link ul li a{
+  display: block;
+    height: 100px;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.56);
+    text-align: center;
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.motel_img{
+  background: rgb(253, 253, 253) url("../images/motel.png") 50% 100% no-repeat;
+}
+
+.hotel_img{
+  background: rgb(253, 253, 253) url("../images/hotel.png") 70% 100% no-repeat;
+}
+.pension_img{
+  background: rgb(253, 253, 253) url("../images/pension.png") 50% 100% no-repeat;
+}
+
+.guest_img{
+  background: rgb(253, 253, 253) url("../images/guest_house.png") 50% 100% no-repeat;
+}
+
+.camping_img{
+  background: rgb(253, 253, 253) url("../images/camping.png") 50% 100% no-repeat;
+}
+
+.overseas_img{
+  background: rgb(253, 253, 253) url("../images/overseas.png") 50% 100% no-repeat;
+}
+
+.main_link ul li a span{
+  display: inline-block;
+  width: 70px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.main_link ul li a p{
+  height: 20px;
+  padding-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .main_link {
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 16px 0;
+    background: rgb(250, 250, 250);
+
+  }
+
+  .main_link ul {
+    overflow: hidden;
+    list-style: none;
+    width: 100%;
+
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .main_link ul li {
+    display: inline-block;
+    width: 33.3%;
+  }
+
+  .main_link ul li a {
+    display: block;
+    overflow: hidden;
+    height: 79px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .main_link ul li a span {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+  }
+
+  .main_link ul li a p {
+    height: 20px;
+    padding-top: 7px;
+  }
+
+  .motel_img {
+    width: 10px;
+    height: 10px;
+    background: rgb(253, 253, 253) url("../images/motel.png") 50% 100% no-repeat;
+  }
+
+  .hotel_img {
+    background: rgb(253, 253, 253) url("../images/hotel.png") 70% 100% no-repeat;
+  }
+
+  .pension_img {
+    background: rgb(253, 253, 253) url("../images/pension.png") 50% 100% no-repeat;
+  }
+
+  .guest_img {
+    background: rgb(253, 253, 253) url("../images/guest_house.png") 50% 100% no-repeat;
+  }
+
+  .camping_img {
+    background: rgb(253, 253, 253) url("../images/camping.png") 50% 100% no-repeat;
+  }
+
+  .overseas_img {
+    background: rgb(253, 253, 253) url("../images/overseas.png") 50% 100% no-repeat;
+  }
+}

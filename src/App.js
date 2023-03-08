@@ -1,29 +1,25 @@
-<<<<<<< refs/remotes/origin/main
-import './Styles/reset.css'
-=======
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
-import HomePC from './components/HomePC';
-import HomeMobile from './components/HomeMobile';
+import './Styles/reset.css';
+import HomePC from './Pages/HomePC';
+import HomeMobile from './Pages/HomeMobile';
 
-import Motel from './components/Motel';
-import Hotel from './components/Hotel';
-import Pension from './components/Pension';
-import GuestHouse from './components/GuestHouse';
-import Camping from './components/Camping';
-import Overseas from './components/Overseas';
->>>>>>> 홈화면 구현
+import Motel from './Pages/Motel';
+import Hotel from './Pages/RoomList';
+import Pension from './Pages/Pension';
+import GuestHouse from './Pages/GuestHouse';
+import Camping from './Pages/Camping';
+import Overseas from './Pages/Overseas';
 
 function App() {
-  const [responsive, setResponsive] = useState(false);
-
   const isMoblie = useMediaQuery({
     query: "(max-width:1024px)"
   });
   return (
     <div className="App">
+      <header className='App-header'>
       <BrowserRouter>
         <Routes>
           { isMoblie ?
@@ -38,7 +34,8 @@ function App() {
           <Route path="/product/search/5" element={<Camping />}></Route>
           <Route path="/product/search/6" element={<Overseas />}></Route>
         </Routes>
-      </BrowserRouter>
+        </BrowserRouter>
+        </header>
     </div>
   );
 }

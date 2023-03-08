@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from "../Styles/BigLocationList.module.css"
 
 function BigLocationList({ getLocationData }) {
     const locationList =
@@ -22,27 +23,26 @@ function BigLocationList({ getLocationData }) {
         setBigcity(target)
     }
 
-    const locationMouseClick = (CurrentTarget, e) => {
+    const locationMouseClick = (CurrentTarget) => {
         getLocationData(`${bigcity} > ${CurrentTarget}`);
     }
 
     return (
-        // 여기 css는 테스트용 입니다. 나중에 지우겠습니다.
-        <div style={{display : "flex"}}>
-        <menu onMouseOver={e => locationMouseOver(e.target.textContent)}>
-            <li>서울</li>
-            <li>부산</li>
-            <li>제주</li>
-            <li>강원</li>
-            <li>경기</li>
-            <li>인천</li>
-            <li>경상</li>
-            <li>전라</li>
-            <li>충청</li>
-        </menu>
-        <menu>
-            {locationMouse && locationMouse.map((location, idx) => {return <li key={idx} onClick={e => locationMouseClick(e.target.textContent, e.target)}>{location}</li>})}
-        </menu>
+        <div className={styles.area_wrap}>
+            <menu className={styles.city} onMouseOver={e => locationMouseOver(e.target.textContent)}>
+                <li>서울</li>
+                <li>부산</li>
+                <li>제주</li>
+                <li>강원</li>
+                <li>경기</li>
+                <li>인천</li>
+                <li>경상</li>
+                <li>전라</li>
+                <li>충청</li>
+            </menu>
+            <menu className={styles.address}>
+                {locationMouse && locationMouse.map((location, idx) => {return <li key={idx} onClick={e => locationMouseClick(e.target.textContent, e.target)}>{location}</li>})}
+            </menu>
         </div>
     )
 }

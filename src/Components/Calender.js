@@ -1,11 +1,12 @@
 import { useState } from "react";
+import styles from "../Styles/Calender.module.css"
 
-function Calender({a, seta}) {
 
-
+function Calender() {
     const [selectMonth, setSelectMonth] = useState(0);
     const [selectDate, setSelectDate] = useState([]);
-    const day = ["일", "월", '화', '수', "목", "금", "토",];
+    const [selectDateNumber, setselectDateNumber] = useState([]);
+    const DAY = ["일", "월", '화', '수', "목", "금", "토",];
 
     function getNewDateObj(newDate) {
         const year = newDate.getFullYear();
@@ -86,42 +87,78 @@ function Calender({a, seta}) {
         }
     }
 
-    function pickDate(month, date){
+    function pickDate(month, date, number){
         if(selectDate.length >= 2) {
             let Msec = selectDate[1].getTime() - selectDate[0].getTime();
             // 몇 박인지 알려주는 변수
             let Mday = Msec/1000/60/60/24;
             setSelectDate([]);
             setSelectDate(prevList => [...prevList, new Date(getNewDateObj(new Date()).year, month - 1, date)]);
+            setselectDateNumber([]);
+            setselectDateNumber(prev => [...prev, number]);
+            return Mday
         }
         setSelectDate(prevList => [...prevList, new Date(getNewDateObj(new Date()).year, month - 1, date)]);
+        setselectDateNumber(prev => [...prev, number])
     }
 
+    function addClassName(ele, idx) {
+        // 날짜가 지났는지 확인하고, 스타일을 적용합니다. (당월만,)
+        if(selectMonth === 0 && getNewDateObj(new Date()).date > ele.date) {
+            return styles.disable
+        }
+        // 날짜가 지났는지 확인하고, 스타일을 적용합니다. (2달뒤만,)
+        if(selectMonth === 2 && getNewDateObj(new Date()).date <= ele.date) {
+            return styles.disable
+        }
+        // 주말인지 체크하고, 스타일을 적용합니다.
+        if(idx === 0) {
+            return styles.holiday
+        }
+    }
+
+    function paintBackGround(date) {
+        if(selectDateNumber[1] === undefined && selectDateNumber[0] === date) {
+            return styles.clicked_date;
+        }
+        if(selectDateNumber[0] <= date && selectDateNumber[1] >= date) {
+            return styles.clicked_date;
+        }
+        if(selectDateNumber[1] <= date && selectDateNumber[0] >= date) {
+            return styles.clicked_date;
+        }
+    }
+
+
     return(
-        // 드래그 금지... 넣어야함
-        <div>
-            <div>
-                <span onClick={() => selectMonth > 0 && setSelectMonth(prev => prev - 1)}>prev</span>
+        <div className={styles.calendar_box}>
+            <div className={styles.calendar_head_box}>
+                <span onClick={() => {selectMonth > 0 && setSelectMonth(prev => prev - 1); setselectDateNumber([]);}}>&lt;</span>
                 {/* 넘겼을때 월의 값이 13이 넘을 시 1년을 더해줌 */}
-                <span>{getMonthDate(getNewDateObj(new Date()), 0).month + selectMonth > 13 ? getMonthDate(getNewDateObj(new Date()), 0).year + 1 : getMonthDate(getNewDateObj(new Date()), 0).year}년</span>
-                <span>{drawMonth()}월</span>
-                <span onClick={() => selectMonth < 2 && setSelectMonth(prev => prev + 1)}>next</span>
+                <div className={styles.calendar_head_number}>
+                    <span>{getMonthDate(getNewDateObj(new Date()), 0).month + selectMonth > 13 ? getMonthDate(getNewDateObj(new Date()), 0).year + 1 : getMonthDate(getNewDateObj(new Date()), 0).year}년</span>
+                    <span>{drawMonth()}월</span>
+                </div>
+                <span onClick={() => {selectMonth < 2 && setSelectMonth(prev => prev + 1); setselectDateNumber([]);}}>&gt;</span>
             </div>
-            <table>
+            <table className={styles.calendar_main_box}>
                 <thead>
                     <tr>
-                        {day.map((ele, idx) => {return <th key={idx}>{ele}</th>})}
+                        {DAY.map((ele, idx) => {return <th key={idx}>{ele}</th>})}
                     </tr>
                 </thead>
-                <tbody onClick={e => pickDate(drawMonth(), Number(e.target.textContent))}>
-                    <tr>{drawWeek(0) && drawWeek(0).map((ele) => <td key={`day_${ele.date}`}>{ele.date <= 7 ? ele.date : null}</td>)}</tr>
-                    <tr>{drawWeek(1) && drawWeek(1).map((ele) => <td key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
-                    <tr>{drawWeek(2) && drawWeek(2).map((ele) => <td key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
-                    <tr>{drawWeek(3) && drawWeek(3).map((ele) => <td key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
-                    <tr>{drawWeek(4) && drawWeek(4).map((ele) => <td key={`day_${ele.date}`}>{ele.date >= 21 ? ele.date : null}</td>)}</tr>
-                    <tr>{drawWeek(5) && drawWeek(5).map((ele) => <td key={`day_${ele.date}`}>{ele.date >= 21 ? ele.date : null}</td>)}</tr>
+                <tbody className={styles.calendar_main_number} onClick={e => {pickDate(drawMonth(), Number(e.target.textContent), e.target.textContent); console.log(selectDateNumber)}}>
+                    <tr>{drawWeek(0) && drawWeek(0).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)} ${ele.date > 7 ? styles.disable : ""}`} key={`day_${ele.date}`}>{ele.date <= 7 ? ele.date : null}</td>)}</tr>
+                    <tr>{drawWeek(1) && drawWeek(1).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)}`} key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
+                    <tr>{drawWeek(2) && drawWeek(2).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)}`} key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
+                    <tr>{drawWeek(3) && drawWeek(3).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)}`} key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
+                    <tr>{drawWeek(4) && drawWeek(4).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)} ${ele.date < 21 ? styles.disable : ""}`} key={`day_${ele.date}`}>{ele.date >= 21 ? ele.date : null}</td>)}</tr>
+                    <tr>{drawWeek(5) && drawWeek(5).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)} ${ele.date < 21 ? styles.disable : ""}`} key={`day_${ele.date}`}>{ele.date >= 21 ? ele.date : null}</td>)}</tr>
                 </tbody>
             </table>
+            <div className={styles.calendar_btn_box}>
+                <button>선택 완료</button>
+            </div>
         </div>
     )
 }

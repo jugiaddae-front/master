@@ -1,4 +1,6 @@
 import { useState } from "react"
+
+import axios from 'axios';
 import Calender from "./Calender";
 import styles from "../Styles/FilterMenu.module.css"
 import calenderImg from "../img/calendar.png"
@@ -13,6 +15,75 @@ function FilterMenu() {
     const inRoomFaci = ["객실스파", "미니바", "와이파이", "욕실용품", "TV", "에어컨", "냉장고", "객실샤워실", "욕조", "드라이기", "다리미", "전기밥솥"];
     const accFaci = ["반려견동반", "조식포함", "객실내흡연", "발렛파킹", "금연", "객실내취사", "프린터사용", "짐보관가능", "개인사물함", "무료주차", "픽업가능", "캠프파이어", "카드결제", "장애인편의시설"];
 
+    //공용시설
+    const stringPublic = ["fitness", "swimmingPool", "sauna", "golfCourse", "restaurant", "elevator", "lounge", "publicPc", "bbq", "cafe", "publicSpa", "footballGround", "meetingRoom", "convenienceStore", "singingRoom", "kitchen", "washingMachine", "dryingMachine", "spinDryer", "parkingLot", "makingFood", "publicShower", "hotSpring", "skiResort"];
+    const [postFacility, setPostFacility] = useState({
+        commonFacility:{}
+    });
+
+    //객실 내 시설
+    const stringRoom = ["roomSpa", "minibar", "wifi", "bathSupplies", "tv", "airConditioner", "refrigerator", "roomShower", "bathTub", "drier", "iron", "riceCooker"];
+    const [postRoomFacility, setPostRoomFacility] = useState({
+        roomFacility:{}
+    });
+
+    //공용시설 선택
+    const chgFacility = (e) => {
+        if (!postFacility.commonFacility[stringPublic[Number(e.target.id.split("_")[1])]]) {
+            let title = stringPublic[Number(e.target.id.split("_")[1])];
+            console.log(title);
+            setPostFacility((prevState) => ({
+                // ...prevState,
+                commonFacility: {
+                    ...prevState.commonFacility,
+                    [title]: true
+                }
+            })
+            )
+        } else {
+            delete postFacility.commonFacility[stringPublic[Number(e.target.id.split("_")[1])]];
+        }
+    }
+
+    //객실 내 시설 선택
+    const chnRoomFacility = (e) => {
+        if (!postRoomFacility.roomFacility[stringRoom[Number(e.target.id.split("_")[1])]]) {
+
+            let title2 = stringRoom[Number(e.target.id.split("_")[1])];
+            setPostRoomFacility((prevState) => ({
+                roomFacility: {
+                    ...prevState.roomFacility,
+                    [title2]: true
+                }
+            }))
+        } else {
+            delete postRoomFacility.roomFacility[stringRoom[Number(e.target.id.split("_")[1])]];
+        }
+    }
+
+    const postdata = { "commonFacility": postFacility.commonFacility };
+    const postdata2 = { "roomFacility": postRoomFacility.roomFacility };
+    async function postInfo(e) {
+        try {
+            console.log(postdata, postdata2);
+            const response = await axios
+            .post("http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/hotel?skip=0&take=10", 
+            
+            {   "search": "서울",
+                "commonFacility": postdata.commonFacility,
+                "roomFacility": postdata2.roomFacility
+            }
+
+            , { "Content-Type": 'application/json' });
+            // for (var i = 0; i < response.data.length; i++) {
+            //     console.log(response.data[i]);
+            // }
+            console.log(response);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
     return (
         <div className={styles.filtermenu_box}>
             <section>
@@ -27,7 +98,10 @@ function FilterMenu() {
                     <h3>상세조건</h3>
                 <div className={styles.btn_box}>
                     <button className={`${styles.detail_btn_style} ${styles.reset_btn}`}>초기화</button>
-                    <button className={`${styles.detail_btn_style} ${styles.apply_btn}`}>적용</button>
+                    <button
+                        className={`${styles.detail_btn_style} ${styles.apply_btn}`}
+                        onClick={postInfo}
+                    >적용</button>
                 </div>
             </section>
             <section className={styles.specil_label}>
@@ -87,13 +161,13 @@ function FilterMenu() {
             <section>
                 <strong>공용시설</strong>
                 <ul className={styles.filter_checkbox}>
-                    {publicFaci.map((ele, idx) => {return <li key={idx}><input type="checkbox" id={`public_${idx}`} /><label htmlFor={`public_${idx}`}>{ele}</label></li>})}
+                    {publicFaci.map((ele, idx) => { return <li key={idx}><input type="checkbox" id={`public_${idx}`} onClick={chgFacility} /><label htmlFor={`public_${idx}`}>{ele}</label></li>})}
                 </ul>
             </section>
             <section>
                 <strong>객실 내 시설</strong>
                 <ul className={styles.filter_checkbox}>
-                    {inRoomFaci.map((ele, idx) => {return <li key={idx}><input type="checkbox" id={`inroom_${idx}`} /><label htmlFor={`inroom_${idx}`}>{ele}</label></li>})}
+                    {inRoomFaci.map((ele, idx) => {return <li key={idx}><input type="checkbox" id={`inroom_${idx}`} onClick={chnRoomFacility} /><label htmlFor={`inroom_${idx}`}>{ele}</label></li>})}
                 </ul>
             </section>
             <section>

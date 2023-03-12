@@ -8,13 +8,13 @@ function Header() {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
-          window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
+    }, []);
 
-      const handleScroll = () => {
+    const handleScroll = () => {
         window.scrollY >= 1 ? setScroll(true) : setScroll(false);
-      };
+    };
 
     return (
         <div className={`${scroll ? styles.scrolled_top_box : null} ${styles.top_box}`}>

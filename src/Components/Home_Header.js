@@ -1,15 +1,38 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import styles from '../Pages/Home.module.css';
 function Header() {
 
   const [searchOn, setSearchOn] = useState(false);
-
   const [searchContent, setSearchContent] = useState('')
 
+  
+
+
+  async function postInfo(e) {
+    try {
+      const response = await axios
+        .post("http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/hotel?skip=10&take=10", {
+          "search": JSON.stringify(searchContent)
+        }, { "Content-Type": 'application/json' });
+      for (var i = 0; i < response.data.length; i++) {
+        console.log(response.data[i]);
+      }
+    }
+    catch(err) {
+      console.log(err);
+    }
+  }
   function cancelSearch(e) {
     setSearchOn(false);
     setSearchContent('');
+  }
+
+  const getSearch = (e) => {
+    if (e.key == 'Enter') {
+      postInfo();      
+    }
   }
 
   return (
@@ -37,9 +60,12 @@ function Header() {
             type='text'
             placeholder='지역, 숙소명'
             value={searchContent}
-            onChange={(e) => {setSearchContent(e.target.value)}}
+              onChange={(e) => { setSearchContent(e.target.value) }}
+              onKeyDown={getSearch}
           />
-          <button style={{display: 'none'}}></button>
+            <button
+              style={{ display: 'none' }}
+            ></button>
         </div>
         <button
           className={styles.search_cancel}

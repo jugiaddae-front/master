@@ -9,7 +9,6 @@ import FilterMenu from "../Components/FilterMenu";
 import ButtonFilter from "../Components/ButtonFilter";
 import Recommendation from "../Components/Recommedation";
 import dropDownArrow from "../img/dropdown_arrow.png"
-import Header from "../Components/Header"
 
 function RoomList() {
     const [locationMenuHidden, setLocationMenuHidden] = useState({toggle : true, count : false});
@@ -80,7 +79,6 @@ function RoomList() {
                             <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
                             <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
                             <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            
                         </div>
                     </div>
                 </main>

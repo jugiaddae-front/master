@@ -1,9 +1,6 @@
 import './Styles/reset.css'
-import RoomList from './Pages/RoomList';
 import SearchResult from './Pages/SearchResult';
-import { Routes ,Route } from "react-router-dom"
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes ,Route } from "react-router-dom"
 import { useMediaQuery } from 'react-responsive';
 
 import './Styles/reset.css';
@@ -23,6 +20,7 @@ function App() {
   });
   return (
     <div className="App">
+          
       <header className='App-header'>
       <BrowserRouter>
         <Routes>
@@ -30,8 +28,7 @@ function App() {
           <Route path="/" element={<HomeMobile />}></Route> :
           <Route path="/" element={<HomePC />}></Route>
           }
-        <Route path="/product/search/" element={<RoomList />} />
-        <Route path="/product/result/" element={<SearchResult />} />
+          <Route path="/product/result/" element={<SearchResult />} />
           <Route path="/product/search/1" element={<Motel/>}></Route>
           <Route path="/product/search/2" element={<Hotel />}></Route>
           <Route path="/product/search/3" element={<Pension />}></Route>
@@ -41,7 +38,6 @@ function App() {
         </Routes>
         </BrowserRouter>
         </header>
- 
     </div>
   );
 }

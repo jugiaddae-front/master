@@ -5,6 +5,7 @@ import FilterMenu from "../Components/FilterMenu";
 import ButtonFilter from "../Components/ButtonFilter";
 import Recommendation from "../Components/Recommedation";
 import dropDownArrow from "../img/dropdown_arrow.png"
+import Header from "../Components/Header"
 
 function RoomList() {
     const [locationMenuHidden, setLocationMenuHidden] = useState({toggle : true, count : false});
@@ -25,6 +26,8 @@ function RoomList() {
     const getLocationData = (data) => setLocationName(data)
 
     return (
+        <>
+        <Header />
         <div className={styles.page_center}>
             <div className={styles.header}>
                 <header className={styles.header_layout}>
@@ -68,6 +71,7 @@ function RoomList() {
                 </main>
             </div>
         </div>
+        </>
     )
 }
 

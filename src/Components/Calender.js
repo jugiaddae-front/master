@@ -3,7 +3,7 @@ import styles from "../Styles/Calender.module.css"
 
 
 function Calender() {
-    const [selectMonth, setSelectMonth] = useState(0);
+const [selectMonth, setSelectMonth] = useState(0);
     const [selectDate, setSelectDate] = useState([]);
     const [selectDateNumber, setselectDateNumber] = useState([]);
     const DAY = ["일", "월", '화', '수', "목", "금", "토",];
@@ -87,7 +87,7 @@ function Calender() {
         }
     }
 
-    function pickDate(month, date, number){
+    function pickDate(month, date, event){
         if(selectDate.length >= 2) {
             let Msec = selectDate[1].getTime() - selectDate[0].getTime();
             // 몇 박인지 알려주는 변수
@@ -95,11 +95,11 @@ function Calender() {
             setSelectDate([]);
             setSelectDate(prevList => [...prevList, new Date(getNewDateObj(new Date()).year, month - 1, date)]);
             setselectDateNumber([]);
-            setselectDateNumber(prev => [...prev, number]);
+            setselectDateNumber(prev => [...prev, event.target.textContent]);
             return Mday
         }
         setSelectDate(prevList => [...prevList, new Date(getNewDateObj(new Date()).year, month - 1, date)]);
-        setselectDateNumber(prev => [...prev, number])
+        setselectDateNumber(prev => [...prev, event.target.textContent])
     }
 
     function addClassName(ele, idx) {
@@ -147,7 +147,7 @@ function Calender() {
                         {DAY.map((ele, idx) => {return <th key={idx}>{ele}</th>})}
                     </tr>
                 </thead>
-                <tbody className={styles.calendar_main_number} onClick={e => {pickDate(drawMonth(), Number(e.target.textContent), e.target.textContent); console.log(selectDateNumber)}}>
+                <tbody className={styles.calendar_main_number} onClick={e => {pickDate(drawMonth(), Number(e.target.textContent), e);}}>
                     <tr>{drawWeek(0) && drawWeek(0).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)} ${ele.date > 7 ? styles.disable : ""}`} key={`day_${ele.date}`}>{ele.date <= 7 ? ele.date : null}</td>)}</tr>
                     <tr>{drawWeek(1) && drawWeek(1).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)}`} key={`day_${ele.date}`}>{ele.date}</td>)}</tr>
                     <tr>{drawWeek(2) && drawWeek(2).map((ele, idx) => <td className={`${paintBackGround(ele.date)} ${addClassName(ele, idx)}`} key={`day_${ele.date}`}>{ele.date}</td>)}</tr>

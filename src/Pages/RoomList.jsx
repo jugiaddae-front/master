@@ -9,6 +9,7 @@ import FilterMenu from "../Components/FilterMenu";
 import ButtonFilter from "../Components/ButtonFilter";
 import Recommendation from "../Components/Recommedation";
 import dropDownArrow from "../img/dropdown_arrow.png"
+import Header from "../Components/Header"
 
 function RoomList() {
     const [locationMenuHidden, setLocationMenuHidden] = useState({toggle : true, count : false});
@@ -38,6 +39,8 @@ function RoomList() {
     
 
     return (
+        <>
+        <Header />
         <div className={styles.page_center}>
             <Header />
             <div className={styles.header}>
@@ -83,6 +86,7 @@ function RoomList() {
                 </main>
             </div>
         </div>
+        </>
     )
 }
 

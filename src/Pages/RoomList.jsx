@@ -41,9 +41,7 @@ function RoomList() {
         <>
         <Header />
         <div className={styles.page_center}>
-            <Header />
             <div className={styles.header}>
-                
                 <header className={styles.header_layout}>
                     <div className={styles.sub_top_box}>
                         <h2>호텔·리조트</h2>

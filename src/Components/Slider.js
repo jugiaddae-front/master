@@ -4,23 +4,23 @@ import styles from "../Styles/Slider.module.css"
 function Slider({ getMinData , getMaxData }) {
     const [rangeMinValue, setRangeMinValue] = useState(1);
     const [rangeMaxValue, setRangeMaxValue] = useState(30);
-    
-    const rangeMinLimit = (e) => {
-        if(Number(rangeMaxValue) - Number(e.target.value) < 2) {
-            setRangeMinValue(+rangeMaxValue - 2);
-        } else (
-            setRangeMinValue(+e.target.value)
-            )
-            getMinData(rangeMinValue);
-    }
 
-    const rangeMaxLimit = (e) => {
-        if(Number(e.target.value) - Number(rangeMinValue) < 2) {
-            setRangeMaxValue(+rangeMinValue + 2);
-        } else (
-            setRangeMaxValue(+e.target.value)
-            )
-            getMaxData(rangeMaxValue);
+    const rangeMinLimit = (e) => {
+        let minValue = +e.target.value;
+        if(Number(rangeMaxValue) - minValue < 2) {
+          minValue = +rangeMaxValue - 2;
+        }
+        setRangeMinValue(minValue);
+        getMinData(minValue);
+      }
+      
+      const rangeMaxLimit = (e) => {
+        let maxValue = +e.target.value;
+        if(maxValue - Number(rangeMinValue) < 2) {
+          maxValue = +rangeMinValue + 2;
+        }
+        setRangeMaxValue(maxValue);
+        getMaxData(maxValue);
     }
 
     return (

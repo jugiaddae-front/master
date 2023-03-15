@@ -1,37 +1,61 @@
-import { useState, useEffect } from "react"
+import axios from "axios";
+import { useState, useEffect, useRef } from "react"
+import { useSearchParams } from "react-router-dom";
 import Calender from "../Components/Calender";
 import Header from "../Components/Header"
 import SearchProduct from "../Components/SearchProduct";
 import Slider from "../Components/Slider"
-import { useSearchParams } from "react-router-dom";
 import styles from "../Styles/SearchResult.module.css"
 
 function SearchResult() {
     const HOUSETYPE = ["모텔", "호텔·리조트", "한옥", "펜션", "게스트하우스", "캠핑"];
+    const SEARCHSIZE = 10;
     const [clickDate, setClickDate] = useState(false);
-    const [searchData, setSearchData] = useState();
+    const [searchData, setSearchData] = useState([]);
     const [sliderMinData, setSliderMinData] = useState(1);
     const [sliderMaxData, setSliderMaxData] = useState(30);
+    const [page, setPage] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
     const keyword = searchParams.get('keyword');
+    const target = useRef();
 
     useEffect(() => {
-        fetch('http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/hotel?skip=0&take=10', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "search": `${keyword}`,
-            })
-        })
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            setSearchData(data);
-        });
-    }, []);
+        const fetchData = async () => {
+          try {
+            setIsLoading(true);
+            const response = await axios.post(`http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/hotel?skip=${page * SEARCHSIZE}&take=${SEARCHSIZE}`, {
+              search: `${keyword}`,
+            }, {
+              headers: { 'Content-Type': 'application/json' }
+            });
+            // 데이터 중복 방지
+            const newSearchData = response.data.filter(newData => {
+                return !searchData.some(existingData => existingData.id === newData.id);
+            });
+            setSearchData(prev => [...prev, ...newSearchData]);
+          } catch (error) {
+            console.error(error);
+          } finally {
+            setIsLoading(false);
+          }
+        };
+        
+        fetchData();
+      }, [page]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !isLoading) {
+            setPage((prev) => prev + 1);
+          }
+        }, { threshold: 1 });
+      
+        observer.observe(target.current);
+      
+        return () => observer.disconnect();
+      }, [isLoading]);
+
 
     const paintPrice = () => {
         if(sliderMaxData === 30) {
@@ -85,8 +109,9 @@ function SearchResult() {
                     <button className={styles.map_btn}>지도</button>
                 </div>
                 <ul>
-                    {searchData && searchData.map((ele, idx) => <li key={`product_list_${idx}`}><SearchProduct name={ele.name} img={ele.hotelImage.mainUrl} address={ele.address} /></li>)}
+                    {searchData && searchData.map((ele, idx) => <li key={`product_list_${ele.id}`}><SearchProduct name={ele.name} img={ele.hotelImage.mainUrl} address={ele.address} /></li>)}
                 </ul>
+                <div className={styles.last_div} ref={target} />
             </div>
         </div>
     </>

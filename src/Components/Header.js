@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../Styles/Header.module.css"
+import { Link } from 'react-router-dom';
 
 function Header() {
     const [accMenuHidden, setAccMenuHidden] = useState(false);
@@ -18,7 +19,7 @@ function Header() {
 
     return (
         <div className={`${scroll ? styles.scrolled_top_box : null} ${styles.top_box}`}>
-            <h1>저기어때.</h1>
+            <h1><Link to="/">저기어때.</Link></h1>
             <nav>
             <ul className={styles.nav_box}>
                 <li>내주변</li>

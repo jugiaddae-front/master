@@ -1,7 +1,11 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import styles from "../Styles/Recommedation.module.css"
 
-function Recommendation({imgUrl, star, maintext, score, review_num, location, price}) {
+function Recommendation({id, imgUrl, star, maintext, score, review_num, location, price}) {
 
+    const navigate = useNavigate();
     function evaluateRecommend() {
         if(score > 9.5) {
             return "최고에요"
@@ -15,7 +19,20 @@ function Recommendation({imgUrl, star, maintext, score, review_num, location, pr
     }
 
     return (
-        <div className={styles.main_contents_box}>
+        <div className={styles.main_contents_box} onClick={(e) => {
+            navigate('/detailpage', {
+                state: {
+                    id: id,
+                    imgUrl: imgUrl,
+                    star: star,
+                    maintext: maintext,
+                    score: score,
+                    review_num: review_num,
+                    location: location,
+                    price: price
+                }
+            })
+        }}>
             <img alt="사진" src={imgUrl}></img>
             <div className={styles.description_box}>
                 <div>

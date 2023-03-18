@@ -97,15 +97,15 @@ function RoomList() {
                             {searchData.map(
                                 (ele, idx) =>
                                     <Recommendation
-                                    key={ele.id}
-                                    // imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg"
-                                    imgUrl={ele.hotelImage.mainUrl}
-                                    star="3성급"
-                                    maintext={ele.name}
-                                    score="9.2"
-                                    review_num="(760)"
-                                    location={ele.address}
-                                    price="140,000원"
+                                        key={ele.id}
+                                        id={ele.id}
+                                        imgUrl={ele.hotelImage.mainUrl}
+                                        star="3성급"
+                                        maintext={ele.name}
+                                        score="9.2"
+                                        review_num="(760)"
+                                        location={ele.address}
+                                        price="140,000원"
                                 />)
                 }
                         </div>

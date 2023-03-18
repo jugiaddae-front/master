@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import styles from '../Pages/Home.module.css';
@@ -7,9 +9,10 @@ function Header() {
   const [searchOn, setSearchOn] = useState(false);
   const [searchContent, setSearchContent] = useState('')
 
-  
+  const navigate = useNavigate();
 
 
+  let postList = [];
   async function postInfo(e) {
     try {
       const response = await axios
@@ -17,8 +20,14 @@ function Header() {
           "search": JSON.stringify(searchContent)
         }, { "Content-Type": 'application/json' });
       for (var i = 0; i < response.data.length; i++) {
-        console.log(response.data[i]);
+        postList.push(response.data[i]);
       }
+      navigate('/searchregion', {
+        state: {
+          postList: postList,
+          searchContent: searchContent
+        }
+      })
     }
     catch(err) {
       console.log(err);

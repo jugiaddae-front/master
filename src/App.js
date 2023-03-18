@@ -7,6 +7,8 @@ import './Styles/reset.css';
 import HomePC from './Pages/HomePC';
 import HomeMobile from './Pages/HomeMobile';
 
+import SearchRegion from './Pages/SearchRegion';
+
 import Motel from './Pages/Motel';
 import Hotel from './Pages/RoomList';
 import Pension from './Pages/Pension';
@@ -34,7 +36,9 @@ function App() {
           <Route path="/product/search/3" element={<Pension />}></Route>
           <Route path="/product/search/4" element={<GuestHouse />}></Route>
           <Route path="/product/search/5" element={<Camping />}></Route>
-          <Route path="/product/search/6" element={<Overseas />}></Route>
+            <Route path="/product/search/6" element={<Overseas />}></Route>
+            
+            <Route path="/searchregion" element={<SearchRegion/>}></Route>
         </Routes>
         </BrowserRouter>
         </header>

@@ -21,6 +21,13 @@
     background-color: #f7323f;
 }
 
+.header_layout{
+    background-color: #f7323f;
+    width: 1024px;
+    height: 211px;
+    margin: auto;
+    color: #fff;
+}
 .search_header_layout{
     background-color: rgb(250, 250, 250);
     width: 100%;

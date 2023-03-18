@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import Calender from "./Calender";
@@ -8,6 +9,7 @@ import plus_btn from "../img/plus.png"
 import minus_btn from "../img/minus.png"
 
 function FilterMenu() {
+    const navigate = useNavigate();
     
     const [countPeople, setCountPeople] = useState(2);
     const [clickDate, setClickDate] = useState(false);
@@ -61,6 +63,7 @@ function FilterMenu() {
         }
     }
 
+    let postList = [];
     const postdata = { "commonFacility": postFacility.commonFacility };
     const postdata2 = { "roomFacility": postRoomFacility.roomFacility };
     async function postInfo(e) {
@@ -75,9 +78,14 @@ function FilterMenu() {
             }
 
             , { "Content-Type": 'application/json' });
-            // for (var i = 0; i < response.data.length; i++) {
-            //     console.log(response.data[i]);
-            // }
+            for (var i = 0; i < response.data.length; i++) {
+                postList.push(response.data[i]);
+            }
+            navigate('/product/search/2', {
+                state: {
+                    postList: postList
+                }
+            })
             console.log(response);
         }
         catch(err) {

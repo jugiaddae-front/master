@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import styles from "../Styles/RoomList.module.css"
@@ -11,6 +12,21 @@ import Recommendation from "../Components/Recommedation";
 import dropDownArrow from "../img/dropdown_arrow.png"
 
 function RoomList() {
+    const location = useLocation();
+    console.log(location);
+
+    let searchData = [];
+
+    if (location.state !== null) {
+        for (var i = 0; i < location.state.postList.length; i++) {
+            searchData.push(location.state.postList[i]);
+        }
+    }
+    else {
+        postInfo();
+    }
+    console.log(searchData);
+
     const [locationMenuHidden, setLocationMenuHidden] = useState({toggle : true, count : false});
     const [locationName, setLocationName] = useState("서울 > 강남/역삼/삼성/신사/청담");
 
@@ -35,7 +51,19 @@ function RoomList() {
 
     const getLocationData = (data) => setLocationName(data)
 
-    
+    async function postInfo(e) {
+        try {
+            const response = await axios
+            .post("http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/hotel?skip=0&take=10", {});
+            for (var i = 0; i < response.data.length; i++) {
+                searchData.push(response.data[i]);
+            }
+            console.log(searchData);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
 
     return (
         <>
@@ -66,17 +94,20 @@ function RoomList() {
                         <ButtonFilter />
                         <div className={styles.main_contents_box}>
                             <h3>인기추천</h3>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
-                            <Recommendation imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg" star= "3성급" maintext="★당일특가★ 호텔 델루나" score="9.2" review_num="(760)" location="강남구" price="140,000원"/>
+                            {searchData.map(
+                                (ele, idx) =>
+                                    <Recommendation
+                                    key={ele.id}
+                                    // imgUrl="//image.goodchoice.kr/resize_1000X500x0/affiliate/2016/05/24/5743e4abad01d.jpg"
+                                    imgUrl={ele.hotelImage.mainUrl}
+                                    star="3성급"
+                                    maintext={ele.name}
+                                    score="9.2"
+                                    review_num="(760)"
+                                    location={ele.address}
+                                    price="140,000원"
+                                />)
+                }
                         </div>
                     </div>
                 </main>

@@ -1,0 +1,35 @@
+.slider_wrap {
+    width: 490px;
+}
+
+.big_img {
+    margin-bottom: 13px;
+}
+
+.big_img > img {
+    width: 490px;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* swiper_wrap */
+
+.swiper_wrap {
+    height: 86px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.swiper_wrap > ul {
+    width: 460px;
+    display: flex;
+    overflow: hidden;
+}
+
+.swiper_wrap > ul li img {
+    width: 115px;
+    height: 84px;
+    padding: 2px;
+}
+

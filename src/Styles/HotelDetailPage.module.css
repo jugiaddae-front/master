@@ -1,0 +1,106 @@
+.contents_wrap {
+    position: relative;
+    width: 1024px;
+    top: 112px;
+    margin: 0 auto 0 auto;
+}
+
+.top_contents {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right_contents {
+    width: 430px;
+}
+
+.info {
+    margin-bottom: 50px;
+}
+
+.info > h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.info > p {
+    margin: 6px 0 8px 0;
+    font-size: 18px;
+    color: rgba(0,0,0,0.7);
+    padding-top: 6px;
+}
+
+.score_wrap {
+    display: flex;
+    align-items: center;
+    margin: 9px 0 6px 0;
+}
+
+.score_wrap {
+    color: rgb(255,167,38);
+    font-size: 18px;
+}
+
+.score_wrap > span {
+    background-color: rgb(255,167,38);
+    padding: 2px 6px 2px 6px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 7px;
+}
+
+.comment_wrap {
+    background-color: rgb(250,250,250);
+    color: rgba(0,0,0,0.87);
+    font-size: 14px;
+    padding: 26px 24px;
+}
+
+.comment_top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.comment_top > strong {
+    font-weight: bold;
+}
+
+.comment_top > span {
+    cursor: pointer;
+    color: rgb(0,121,107);
+}
+
+.comment_contents {
+    color: rgba(0,0,0,0.56);
+    font-size: 16px;
+    line-height: 26px;
+}
+
+/* bottom contents start */
+
+.tap {
+    display: flex;
+    width: 100%;
+    padding: 0 16px;
+    margin-top: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    color: rgba(0,0,0,0.5);
+    font-size: 18px;
+}
+
+.tap_on {
+    border-bottom: 3px solid rgb(242,17,76);
+    font-weight: bold;
+    color: rgb(230,28,81);
+}
+
+.tap p {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 72px;
+    margin-right: 24px;
+}

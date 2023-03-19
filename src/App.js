@@ -1,9 +1,8 @@
-import './Styles/reset.css'
+import './Styles/reset.css';
 import SearchResult from './Pages/SearchResult';
 import { BrowserRouter, Routes ,Route } from "react-router-dom"
 import { useMediaQuery } from 'react-responsive';
 
-import './Styles/reset.css';
 import HomePC from './Pages/HomePC';
 import HomeMobile from './Pages/HomeMobile';
 
@@ -13,6 +12,8 @@ import Pension from './Pages/Pension';
 import GuestHouse from './Pages/GuestHouse';
 import Camping from './Pages/Camping';
 import Overseas from './Pages/Overseas';
+import HotelDetailPage from './Pages/HotelDetailPage';
+
 
 function App() {
   const isMoblie = useMediaQuery({
@@ -35,6 +36,7 @@ function App() {
           <Route path="/product/search/4" element={<GuestHouse />}></Route>
           <Route path="/product/search/5" element={<Camping />}></Route>
           <Route path="/product/search/6" element={<Overseas />}></Route>
+          <Route path="/product/test" element={<HotelDetailPage />}></Route>
         </Routes>
         </BrowserRouter>
         </header>

@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from "react"
 import { useSearchParams } from "react-router-dom";
 import Calender from "../Components/Calender";
 import Header from "../Components/Header"
-import SearchProduct from "../Components/SearchProduct";
-import Slider from "../Components/Slider"
+import SearchProduct from "../Components/SearchResult_SearchProduct";
+import Slider from "../Components/SearchResult_Slider"
 import styles from "../Styles/SearchResult.module.css"
 
 function SearchResult() {

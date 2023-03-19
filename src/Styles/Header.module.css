@@ -90,14 +90,14 @@
 }
 
 .acc_menu_apear {
-    opacity: 1;
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 30px;
     left: -65px;
-    width: 120px;
-    height: 136px;
+    width: 180px;
     border-radius: 5px;
-    padding: 32px;
+    padding: 30px 30px 20px 30px;
     background-color: #fff;
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
     font-size: 16px;

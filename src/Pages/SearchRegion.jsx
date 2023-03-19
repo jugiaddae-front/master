@@ -5,10 +5,10 @@ import axios from 'axios';
 import styles from "../Styles/RoomList.module.css"
 
 import Header from "../Components/Header";
-import BigLocationList from "../Components/BigLocationList"
-import FilterMenu from "../Components/FilterMenu";
-import ButtonFilter from "../Components/ButtonFilter";
-import Recommendation from "../Components/Recommedation";
+import BigLocationList from "../Components/RoomList_Recommedation"
+import FilterMenu from "../Components/RoomList_FilterMenu";
+import ButtonFilter from "../Components/RoomList_ButtonFilter";
+import Recommendation from "../Components/RoomList_Recommedation";
 import dropDownArrow from "../img/dropdown_arrow.png"
 
 

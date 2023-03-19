@@ -48,6 +48,8 @@ function App() {
             
           <Route path="/user/login" element={<Login />}></Route>
           <Route path="/user/join" element={<Join />}></Route>
+          
+          <Route path="/product/test" element={<HotelDetailPage />}></Route>
         </Routes>
         </BrowserRouter>
         </header>

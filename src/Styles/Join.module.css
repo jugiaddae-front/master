@@ -1,0 +1,107 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.join_section{
+  width: 336px;
+  margin: 100px auto 0 auto;
+}
+
+.join_section h4{
+  text-align: center;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+.join_form p{
+  font-size: 14px;
+  margin: 13px 0;
+
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.join_form input{
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+
+  padding: 0 10px;
+
+  width: 336px;
+  height: 48px;
+}
+
+.join_form input:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.08);
+  outline: none;
+}
+
+.join_idErrHide{
+  visibility: hidden;
+}
+
+.join_pwErrHide {
+  visibility: hidden;
+}
+
+.join_sameErrHide{
+  visibility: hidden;
+}
+
+.join_idErr{
+  font-size: 10px;
+  color: red;
+
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.join_pwErr{
+  font-size: 10px;
+  color: red;
+
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.join_saveErr{
+  font-size: 10px;
+    color: red;
+  
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.join_activeBtn{
+  width: 336px;
+  height: 58px;
+
+  margin: 20px 0;
+  border: none;
+  border-radius: 6px;
+  line-height: 50px;
+
+  background-color: rgb(255, 0, 85);
+  color: rgb(255, 255, 255);
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+
+.join_btn{
+  width: 336px;
+  height: 58px;
+
+  margin: 20px 0;
+  border: none;
+  border-radius: 6px;
+  line-height: 50px;
+
+  background-color: rgb(250, 250, 250);
+  color: rgba(0, 0, 0, 0.16);
+
+  font-size: 15px;
+}

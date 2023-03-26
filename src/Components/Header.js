@@ -33,7 +33,7 @@ function Header() {
                         <li>약관 및 정책</li>
                     </ul>
                 </li>
-                <li>로그인</li>
+                <li><Link to='/user/login'>로그인</Link></li>
             </ul>
         </nav>
     </div>

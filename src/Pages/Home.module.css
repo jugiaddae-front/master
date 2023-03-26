@@ -312,6 +312,8 @@
   min-width: 53px;
   min-height: 35px;
 
+  text-decoration: none;
+  color: rgba(256, 256, 256, 0.87);
   font-size: 15px;
   margin-left: 30px;
   vertical-align: top;

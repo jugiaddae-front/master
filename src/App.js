@@ -7,6 +7,9 @@ import './Styles/reset.css';
 import HomePC from './Pages/HomePC';
 import HomeMobile from './Pages/HomeMobile';
 
+import Login from './Pages/Login';
+import Join from './Pages/Join'
+
 import SearchRegion from './Pages/SearchRegion';
 import DetailPage from './Pages/DetailPage';
 
@@ -37,11 +40,13 @@ function App() {
           <Route path="/product/search/3" element={<Pension />}></Route>
           <Route path="/product/search/4" element={<GuestHouse />}></Route>
           <Route path="/product/search/5" element={<Camping />}></Route>
-            <Route path="/product/search/6" element={<Overseas />}></Route>
-            
-            <Route path="/searchregion" element={<SearchRegion />}></Route>
-            <Route path="/detailpage" element={<DetailPage/>}></Route>
+          <Route path="/product/search/6" element={<Overseas />}></Route>
+          
+          <Route path="/searchregion" element={<SearchRegion />}></Route>
+          <Route path="/detailpage" element={<DetailPage/>}></Route>
 
+          <Route path="/user/login" element={<Login />}></Route>
+          <Route path="/user/join" element={<Join />}></Route>
         </Routes>
         </BrowserRouter>
         </header>

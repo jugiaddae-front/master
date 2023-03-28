@@ -50,6 +50,7 @@ border-radius: 4px;
 
 .date_select_box {
     display: flex;
+    position: relative;
     align-items: center;
     height: 40px;
     background-color: rgba(0,0,0,0.02);

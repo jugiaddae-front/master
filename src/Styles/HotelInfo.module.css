@@ -30,3 +30,13 @@
     color: rgba(0,0,0,0.56);
     list-style: disc;
 }
+
+.facilities {
+    display: flex;
+    list-style: none !important;
+}
+
+/* .map {
+    width: 300px;
+    height: 200px;
+} */

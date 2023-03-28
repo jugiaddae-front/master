@@ -96,11 +96,7 @@ function FilterMenu() {
         <div className={styles.filtermenu_box}>
             <section>
                 <h3>날짜</h3>
-                <div className={styles.date_select_box} onClick={() => setClickDate(prev => !prev)}>
-                    <img className={styles.calender_img} src={calenderImg} alt="calenderImg" />
-                    <span>날짜1~날짜2, 몇박</span>
-                </div>
-                    {clickDate ? <Calender /> : null}
+                <Calender />
             </section>
             <section className={styles.detail_section}>
                     <h3>상세조건</h3>

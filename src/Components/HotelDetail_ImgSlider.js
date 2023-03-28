@@ -1,30 +1,46 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "../Styles/ImgSlider.module.css"
 
 
-function ImgSlider() {
-    const [getDetailImg, setGetDetailImg] = useState();
-    const [currentIdx, setCurrentIdx] = useState(0);
+function ImgSlider({data}) {
+    const [currentIdx, setCurrentIdx] = useState();
+    const [transitionSpeed, setTransitionSpeed] = useState(150)
 
     useEffect(() => {
-        axios.get('http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/hotel/7')
-        .then(res => setGetDetailImg(res.data.detailImageUrl))
-        .catch(error => console.log(error))
-    }, [])
+        setCurrentIdx(data?.detailImageUrl.length)
+    }, [data])
+
+    const idxChanger = () => {
+        if(currentIdx === 1) {
+            setTimeout(() => {
+                setCurrentIdx(data?.detailImageUrl.length);
+                setTransitionSpeed(0);
+            }, 150)
+        }
+        if(currentIdx === data?.detailImageUrl.length * 2) {
+            setTimeout(() => {
+                setCurrentIdx(data?.detailImageUrl.length + 1);
+                setTransitionSpeed(0);
+            }, 150)
+        }
+        setTransitionSpeed(150);
+    }
 
     return (
         <div className={styles.slider_wrap}>
             <div className={styles.big_img}>
-                {getDetailImg && <img alt="big_img" src={getDetailImg[currentIdx]} />}
+                {<img alt="big_img" src={data?.detailImageUrl[currentIdx%data?.detailImageUrl.length]} />}
             </div>
-
-            <div className={styles.swiper_wrap}>
-                <p onClick={() => setCurrentIdx(prev => prev-1)}>&lt;</p>
-                <ul>
-                    {getDetailImg && getDetailImg.map((ele, idx) => <li key={`img${idx}`}><img alt={`detail_img${idx}`} src={`${ele}`} /></li>)}
-                </ul>
-                <p onClick={() => setCurrentIdx(prev => prev+1)}>&gt;</p>
+            <div style={{"display" : "flex", "alignItems":"center"}}>
+                <p onClick={() => {setCurrentIdx(prev => prev-1); idxChanger()}}>&lt;</p>
+                <div className={styles.swiper_wrap}>
+                    <ul style={{"transform": `translateX(${-currentIdx * 115}px)`, "transition" : `${transitionSpeed}ms`}}>
+                        {data?.detailImageUrl.map((ele, idx) => <li key={`img${idx}`}><img alt={`detail_img${idx}`} src={`${ele}`} /></li>)}
+                        {data?.detailImageUrl.map((ele, idx) => <li key={`img${idx}`}><img alt={`detail_img${idx}`} src={`${ele}`} /></li>)}
+                        {data?.detailImageUrl.map((ele, idx) => <li key={`img${idx}`}><img alt={`detail_img${idx}`} src={`${ele}`} /></li>)}
+                    </ul>
+                </div>
+                <p onClick={() => {setCurrentIdx(prev => prev+1); idxChanger()}}>&gt;</p>
             </div>
         </div>
     )

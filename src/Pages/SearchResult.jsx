@@ -76,8 +76,7 @@ function SearchResult() {
                 <div className={styles.filter_wrap}>
                 <section>
                     <h3>날짜</h3>
-                    <div onClick={() => setClickDate(prev => !prev)} className={styles.date_btn}><span>오늘~내일 1박</span></div>
-                    {clickDate ? <Calender /> : null}
+                    <Calender />
                 </section>
                 <section>
                     <h3>상세조건</h3>

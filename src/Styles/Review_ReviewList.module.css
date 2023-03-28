@@ -1,0 +1,46 @@
+.list_wrap {
+    display: flex;
+}
+
+.profile_img {
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+}
+
+.contents_wrap {
+    margin-left: 50px;
+}
+
+.contents_wrap > strong {
+    display: block;
+    padding-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.score_wrap {
+    display: flex;
+    align-items: center;
+}
+
+.score_num {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+.name {
+    padding-top: 18px;
+    color: rgba(0,0,0,0.56);
+}
+
+.txt {
+    margin-top: 11px;
+    line-height: 26px;
+}
+
+.date {
+    display: block;
+    padding: 13px 0 0 0;
+    color: rgba(0,0,0,0.56);
+}

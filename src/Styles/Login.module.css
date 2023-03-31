@@ -3,6 +3,11 @@
   margin-top: 25%;
 }
 
+.login_mainWrapper h4{
+  margin: 20px 0;
+  font-weight: bold;
+}
+
 .login_idInput:after{
   display: inline-block;
   content: '';
@@ -44,20 +49,14 @@ input{
 }
 
 .login_linkHalf{
-  overflow: hidden;
-  position: relative;
   height: 56px;
   margin-top: 9px;
 }
 
-.login_linkHalf div {
-  width: 300px;
-  height: 56px;
-  display: inline-block;
-  float: left;
-  width: 50%;
+.login_linkHalf span {
   text-align: center;
 
+  margin: 0 25px;
   font-size: 15px;
   line-height: 26px;
   color: rgba(0, 0, 0, 0.87);

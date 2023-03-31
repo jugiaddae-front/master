@@ -37,6 +37,7 @@ function Login() {
   return (
     <>
       <div className={styles.login_mainWrapper}>
+        <h4>로그인</h4>
         <section className={styles.login_section}>
           <div className={styles.login_id}>
             <input className={styles.login_idInput} value={id} onChange={(e) => setId(e.target.value)} placeholder='아이디' type='text' required/>
@@ -49,8 +50,8 @@ function Login() {
           <button onClick={Login} className={styles.login_btn}>로그인</button>
 
           <div className={styles.login_linkHalf}>
-            <div className={styles.login_rePw}>비밀번호 재설정</div>
-            <div className={styles.login_join}><Link to='/user/join'>회원가입</Link></div>
+            <span className={styles.login_rePw}>비밀번호 재설정</span>
+            <span className={styles.login_join}><Link to='/user/join'>회원가입</Link></span>
           </div>
         </section>
       </div>

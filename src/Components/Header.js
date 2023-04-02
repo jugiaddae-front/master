@@ -33,7 +33,7 @@ function Header() {
                         <li>약관 및 정책</li>
                     </ul>
                 </li>
-                <li><Link to='/user/login'>로그인</Link></li>
+                <li><Link to='/user/login' className={styles.header_login}>로그인</Link></li>
             </ul>
         </nav>
     </div>

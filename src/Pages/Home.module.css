@@ -319,6 +319,10 @@
   vertical-align: top;
 }
 
+.list li:hover{
+  color: #fff;
+}
+
 .search_bar{
   position: absolute;
   top: 24px;
@@ -462,6 +466,11 @@
 .main_link ul li a p{
   height: 20px;
   padding-top: 10px;
+}
+
+.home_header_login{
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 1024px) {

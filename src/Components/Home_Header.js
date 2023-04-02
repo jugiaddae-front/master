@@ -59,7 +59,7 @@ function Header() {
           <li className={styles.list1}>내주변</li>
           <li className={styles.list2}>예약내역</li>
           <li className={styles.list3}>더보기</li>
-          <li className={styles.list4}><Link to='/user/login'>로그인</Link></li>
+          <li className={styles.list4}><Link to='/user/login' className={styles.home_header_login}>로그인</Link></li>
       </ul>
       
       <div className={styles.search_bar} style={searchOn ? {display: 'block'} : {display: 'none'}}>

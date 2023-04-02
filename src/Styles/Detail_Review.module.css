@@ -23,8 +23,13 @@
 }
 
 .score_top p {
-    margin-top: 22px;
+    margin-top: 15px;
     font-size: 18px;
+}
+
+.score_top b {
+    margin-left: 10px;
+    font-size: 20px;
 }
 
 .block {
@@ -40,4 +45,20 @@
 .list_wrap li {
     padding: 47px 0;
     border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.post_btn {
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background-color: rgb(230,28,81);
+    border: 1px solid rgb(230,28,81);
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.post_btn:active {
+    background-color: rgb(177, 19, 62);
+    border: 1px solid rgb(177, 19, 62);
 }

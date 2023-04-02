@@ -1,4 +1,4 @@
-function Star({fill, id, isSmall}) {
+function Star({ fill, id, isSmall}) {
 
     return(
         <span className='star_icon'>

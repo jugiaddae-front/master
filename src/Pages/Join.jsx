@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../Styles/Join.module.css';
 
 function Join() {
+  const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [chkPw, setChkPw] = useState('');
@@ -86,6 +88,7 @@ function Join() {
     <>
       <div className={styles.join_mainWrapper}>
         <section className={styles.join_section}>
+          <div className={styles.join_logo} onClick={(e) => {navigate('/')}}>저기어때.</div>
           <h4>회원가입</h4>
               <div className={styles.join_form}>
               <div>

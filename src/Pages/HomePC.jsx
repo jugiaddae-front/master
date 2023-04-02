@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Header from '../Components/Home_Header';
+import Header from '../Components/Header';
 import LocationPage from '../Components/Home_LocationPage';
 import styles from './Home.module.css';
 

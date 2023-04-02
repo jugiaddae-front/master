@@ -1,6 +1,21 @@
+@font-face {
+  font-family: "official_font";
+  src: url(Jalnan.ttf)
+}
+
 *{
   padding: 0;
   margin: 0;
+}
+
+.join_logo {
+  text-align: center;
+  font-family: "official_font";
+  color: rgba(255, 0, 85, 1);
+
+  font-size: 25px;
+  margin-bottom: 35px;
+  cursor: pointer;
 }
 
 .join_section{

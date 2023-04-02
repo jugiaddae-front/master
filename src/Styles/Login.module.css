@@ -1,6 +1,21 @@
+@font-face {
+  font-family: "official_font";
+  src: url(Jalnan.ttf)
+}
+
+
+.login_logo{
+  font-family: "official_font";
+  color:rgba(255, 0, 85, 1);
+
+  font-size: 25px;
+  margin-bottom: 35px;
+  cursor: pointer;
+}
+
 .login_mainWrapper{
   text-align: center;
-  margin-top: 25%;
+  margin-top: 20%;
 }
 
 .login_mainWrapper h4{
@@ -64,4 +79,9 @@ input{
 
 .login_section input:focus{
   outline: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+.gotojoin{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
 }

@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "../Styles/Detail_Review.module.css"
 import ReviewList from "./HotelDetail_Review_ReviewList"
+import Modal from "./Modal"
 import Star from "./Star"
 
 function Review() {
-
-    const [reviewData, setReviewData] = useState()
+    const [reviewData, setReviewData] = useState();
+    const [isPostClick, setIsPostClick] = useState(false);
 
     useEffect(() => {
         axios.get('http://ec2-13-209-62-189.ap-northeast-2.compute.amazonaws.com:8080/api/review/7')
@@ -69,13 +70,14 @@ function Review() {
                 </div>
                 <p >
                     전체리뷰
-                    <b>251</b>
+                    <b>{reviewData?.length}</b>
                 </p>
-                <button className={styles.post_btn}>리뷰 등록</button>
+                <button onClick={() => setIsPostClick(true)} className={styles.post_btn}>리뷰 등록</button>
+                {isPostClick ? <Modal isPostClick={setIsPostClick} /> : null}
             </div>
             
             <ul className={styles.list_wrap}>
-                {reviewData?.map((ele, idx) => <li key={ele.reviewId}><ReviewList data={ele} /></li>)}
+                {reviewData?.map((ele) => <li key={`reviewList${ele.reviewId}`}><ReviewList data={ele} /></li>)}
             </ul>
         </article>
     )

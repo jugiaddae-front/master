@@ -1,8 +1,9 @@
+import { useState } from "react";
 import styles from "../Styles/Review_ReviewList.module.css"
 import Star from "./Star"
 
 function ReviewList({data}) {
-
+    
     function starArr(num) {
         let arr = [];
         if(num%2 === 0){

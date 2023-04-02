@@ -1,0 +1,111 @@
+.modal_background {
+    position: fixed;
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal_wrap {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+    width: 700px;
+    height: 800px;
+    padding: 50px 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+
+.modal_wrap > p { 
+    margin: 5px 0;
+}
+
+.modal_wrap > * {
+    margin: 10px;
+}
+
+.modal_wrap h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal_wrap button {
+    width: 100px;
+    height: 50px;
+    border: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal_wrap input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+}
+
+.modal_wrap textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    resize: none;
+    white-space: pre-wrap;
+}
+
+.title {
+    flex: 1;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.contents {
+    flex: 8;
+}
+
+.modal_wrap input[type=range] { 
+    -webkit-appearance: none;
+    background: transparent;
+  }
+
+.modal_wrap input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 15px;
+    outline: 0;
+    border: 0;
+    background-color: rgb(230,28,81);
+}
+
+
+.btn_wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.confirm_btn {
+    color: #fff;
+    background-color: rgb(230,28,81);
+    margin-right: 20px;
+}
+
+.confirm_btn:active {
+    background-color: rgb(158, 18, 55);;
+}
+
+.cancel_btn:active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.currentValue {
+    padding: 0px !important;
+    margin-top: 0px;
+}

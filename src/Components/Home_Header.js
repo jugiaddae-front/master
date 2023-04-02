@@ -59,16 +59,17 @@ function Header() {
           <li className={styles.list1}>내주변</li>
           <li className={styles.list2}>예약내역</li>
           <li className={styles.list3}>더보기</li>
-          <li className={styles.list4}>로그인</li>
+          <li className={styles.list4}><Link to='/user/login'>로그인</Link></li>
       </ul>
       
       <div className={styles.search_bar} style={searchOn ? {display: 'block'} : {display: 'none'}}>
         <div className={styles.search_main}>
             <input
+              
               className={styles.search_input}
-            type='text'
-            placeholder='지역, 숙소명'
-            value={searchContent}
+              type='text'
+              placeholder='지역, 숙소명'
+              value={searchContent}
               onChange={(e) => { setSearchContent(e.target.value) }}
               onKeyDown={getSearch}
           />

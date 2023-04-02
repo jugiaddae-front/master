@@ -48,28 +48,6 @@ function LocationPage({ imgUrl, pageName }) {
                     <p>펜션</p>
                   </a>
                 </li>
-
-                <li>
-                  <a href='/product/search/4'>
-                    <span className={styles.guest_img}></span>
-                    <p>게스트하우스</p>
-                  </a>
-                </li>
-
-                <li>
-                  <a href='/product/search/5'>
-                    <span className={styles.camping_img}></span>
-                    <p>캠핑 글램핑</p>
-                  </a>
-                </li>
-                
-                <li>
-                  <a href='/product/search/6'>
-                    <span className={styles.overseas_img}></span>
-                    <p>해외 여행</p>
-                  </a>
-                </li>
-
               </ul>
             </div>
 

@@ -312,6 +312,8 @@
   min-width: 53px;
   min-height: 35px;
 
+  text-decoration: none;
+  color: rgba(256, 256, 256, 0.87);
   font-size: 15px;
   margin-left: 30px;
   vertical-align: top;
@@ -425,7 +427,7 @@
   /* float: left; */
   display: inline-block;
   margin: -1.5px;
-  width: 163px;
+  width: 250px;
 }
 
 .main_link ul li a{
@@ -448,18 +450,6 @@
 }
 .pension_img{
   background: rgb(253, 253, 253) url("../images/pension.png") 50% 100% no-repeat;
-}
-
-.guest_img{
-  background: rgb(253, 253, 253) url("../images/guest_house.png") 50% 100% no-repeat;
-}
-
-.camping_img{
-  background: rgb(253, 253, 253) url("../images/camping.png") 50% 100% no-repeat;
-}
-
-.overseas_img{
-  background: rgb(253, 253, 253) url("../images/overseas.png") 50% 100% no-repeat;
 }
 
 .main_link ul li a span{
@@ -531,17 +521,5 @@
 
   .pension_img {
     background: rgb(253, 253, 253) url("../images/pension.png") 50% 100% no-repeat;
-  }
-
-  .guest_img {
-    background: rgb(253, 253, 253) url("../images/guest_house.png") 50% 100% no-repeat;
-  }
-
-  .camping_img {
-    background: rgb(253, 253, 253) url("../images/camping.png") 50% 100% no-repeat;
-  }
-
-  .overseas_img {
-    background: rgb(253, 253, 253) url("../images/overseas.png") 50% 100% no-repeat;
   }
 }
